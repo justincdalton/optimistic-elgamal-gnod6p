@@ -1,9 +1,7 @@
-export const fetchPeople = () => {
-  // return fetch("https://9087-76-14-115-14.ngrok.io/people")
-  //   .then((res) => res.json())
-  //   .then((data) => data);
+export const fetchPeople = (params?: any) => {
+  const searchParams = new URLSearchParams(params);
 
-  return Promise.resolve([
-    {id: '1', firstName: 'Test', lastName: 'User', age: 30}
-  ])
+  return fetch("http://localhost:3434/people?" + searchParams.toString())
+    .then((res) => res.json())
+    .then((data) => data);
 };

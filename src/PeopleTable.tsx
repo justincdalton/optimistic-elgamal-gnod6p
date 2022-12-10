@@ -12,7 +12,7 @@ function PeopleRow({ row }: { row: any }) {
   );
 }
 
-const headers = [
+const columns = [
   { id: "firstName", label: "First Name" },
   { id: "lastName", label: "Last Name" },
   { id: "age", label: "Age" },
@@ -21,9 +21,10 @@ const headers = [
 export function PeopleTable() {
   return (
     <TableContainer
-      key={"people"}
+      title={'People'}
+      tableKey={'people'}
       fetchFn={fetchPeople}
-      headers={headers}
+      columns={columns}
       renderRow={(row: any) => <PeopleRow row={row} />}
     />
   );
