@@ -150,8 +150,10 @@ export const TableContainer = ({
         <Typography variant="h6" sx={{ flex: '1 1 100%', textAlign: 'left'}}>
           {title}
         </Typography>
-        {query.isFetching && <CircularProgress />}
         <SearchField onSearch={(searchTerm: string) => dispatch({type: 'SEARCH', searchTerm})} />
+        <Box width={40}>
+          {query.isFetching && <CircularProgress size={20} />}
+        </Box>
       </Toolbar>
       <Table>
         <TableHead>
